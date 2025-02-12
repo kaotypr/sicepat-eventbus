@@ -1,5 +1,5 @@
 {
-  "name": "sicepat-eventbus",
+  "name": "scpt-eventbus",
   "version": "0.0.0",
   "description": "Type-safe event bus for iframe communication",
   "main": "./dist/index.js",
@@ -47,6 +47,6 @@
     "tsup": "^8.0.1"
   },
   "dependencies": {
-    "railframe": "^0.0.2"
+    "railframe": "^0.0.3"
   }
 }

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       railframe:
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.3
+        version: 0.0.3
       react:
         specifier: '>=16.8.0'
         version: 19.0.0
