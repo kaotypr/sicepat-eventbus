@@ -17,9 +17,7 @@
       "require": "./dist/hooks.js"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "rm -rf dist && tsup",
     "dev": "rm -rf dist && tsup --config tsup.dev.config.ts",
@@ -28,12 +26,7 @@
     "check": "biome check --apply .",
     "prepublishOnly": "pnpm run build"
   },
-  "keywords": [
-    "eventbus",
-    "iframe",
-    "communication",
-    "react"
-  ],
+  "keywords": ["eventbus", "iframe", "communication", "react"],
   "author": "",
   "license": "ISC",
   "peerDependencies": {

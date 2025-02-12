@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: {
@@ -14,7 +14,7 @@ export default defineConfig({
   minify: true,
   external: ['react', 'react-dom'],
   esbuildOptions(options) {
-    options.chunkNames = 'chunks/[name]-[hash]';
-    options.metafile = true;
+    options.chunkNames = 'chunks/[name]-[hash]'
+    options.metafile = true
   },
-});
+})

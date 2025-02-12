@@ -1,16 +1,21 @@
-import { RailframeClient, type RailframeOptions, type MessageHandler } from 'railframe';
-import type { EventMap } from '../types';
+import { RailframeClient, type RailframeOptions, type MessageHandler } from 'railframe'
+import type { EventMap } from '../types'
 
 /**
  * Eventbus client, directly handle events from the container and emit events to the container
  */
 export class EventbusClient {
+  private railframe: RailframeClient
+  public readonly logger: typeof RailframeClient.prototype.logger
   /**
    * Create a new EventbusClient
    * @param options - client options
    * @param options.targetOrigin - target origin
    * @param options.debug - debug mode
    */
+  constructor(options?: Omit<RailframeOptions, 'delimitter'>) {
+    this.railframe = new RailframeClient({ ...options, delimiter: ':' })
+    this.logger = this.railframe.logger
   }
 
   /**
@@ -19,7 +24,7 @@ export class EventbusClient {
    * @param callback - Callback function to be called when the event is emitted by the container
    */
   on<K extends keyof EventMap>(event: K, callback: MessageHandler<EventMap[K]>): void {
-    this.railframe.on(event as string, callback);
+    this.railframe.on(event as string, callback)
   }
 
   /**
@@ -27,8 +32,8 @@ export class EventbusClient {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param payload - Payload to be sent, payload type is defined based on the event name
    */
-  emit<K extends keyof EventMap>(event: K, data?: EventMap[K]): void {
-    this.railframe.emit(event as string, data);
+  emit<K extends keyof EventMap>(event: K, payload?: EventMap[K]): void {
+    this.railframe.emit(event as string, payload)
   }
 
   /**
@@ -36,14 +41,14 @@ export class EventbusClient {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param callback - Specific callback function to be removed from the event listeners, if not provided, all callback functions on given event name will be removed
    */
-  off<K extends keyof EventMap>(event: K, callback: MessageHandler<EventMap[K]> = () => {}): void {
-    this.railframe.off(event as string, callback);
+  off<K extends keyof EventMap>(event: K, callback?: MessageHandler<EventMap[K]>): void {
+    this.railframe.off(event as string, callback)
   }
 
   /**
    * Destroy the event bus client and remove all listeners from the client
    */
   destroy() {
-    this.railframe.destroy();
+    this.railframe.destroy()
   }
 }
