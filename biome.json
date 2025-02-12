@@ -19,7 +19,8 @@
         "noUnusedImports": "error"
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noConfusingVoidType": "off"
       },
       "style": {
         "useConst": "error",
