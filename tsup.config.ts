@@ -11,6 +11,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
+  minify: true,
   external: ['react', 'react-dom'],
   esbuildOptions(options) {
     options.chunkNames = 'chunks/[name]-[hash]';
