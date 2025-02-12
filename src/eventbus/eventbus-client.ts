@@ -1,16 +1,22 @@
 import { RailframeClient, type RailframeOptions, type MessageHandler } from 'railframe';
 import type { EventMap } from '../types';
 
+/**
+ * Eventbus client, directly handle events from the container and emit events to the container
+ */
 export class EventbusClient {
-  private railframe: RailframeClient;
-  public readonly logger: typeof RailframeClient.prototype.logger;
-  constructor(options?: RailframeOptions) {
-    this.railframe = new RailframeClient(options);
-    this.logger = this.railframe.logger;
+  /**
+   * Create a new EventbusClient
+   * @param options - client options
+   * @param options.targetOrigin - target origin
+   * @param options.debug - debug mode
+   */
   }
 
   /**
    * Listen to a specific event emitted by the container
+   * @param event - Event name, use ":" as delimiter for namespaces
+   * @param callback - Callback function to be called when the event is emitted by the container
    */
   on<K extends keyof EventMap>(event: K, callback: MessageHandler<EventMap[K]>): void {
     this.railframe.on(event as string, callback);
@@ -18,6 +24,8 @@ export class EventbusClient {
 
   /**
    * Emit an event to the container
+   * @param event - Event name, use ":" as delimiter for namespaces
+   * @param payload - Payload to be sent, payload type is defined based on the event name
    */
   emit<K extends keyof EventMap>(event: K, data?: EventMap[K]): void {
     this.railframe.emit(event as string, data);
@@ -25,6 +33,8 @@ export class EventbusClient {
 
   /**
    * Remove event listener from the client
+   * @param event - Event name, use ":" as delimiter for namespaces
+   * @param callback - Specific callback function to be removed from the event listeners, if not provided, all callback functions on given event name will be removed
    */
   off<K extends keyof EventMap>(event: K, callback: MessageHandler<EventMap[K]> = () => {}): void {
     this.railframe.off(event as string, callback);
