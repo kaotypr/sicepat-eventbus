@@ -1,14 +1,39 @@
 {
   "name": "sicepat-eventbus",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Type-safe event bus for iframe communication",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
+    },
+    "./hooks": {
+      "import": "./dist/hooks.mjs",
+      "types": "./dist/hooks.d.ts",
+      "require": "./dist/hooks.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
     "format": "biome format --write .",
     "lint": "biome lint .",
-    "check": "biome check --apply ."
+    "check": "biome check --apply .",
+    "prepublishOnly": "pnpm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "eventbus",
+    "iframe",
+    "communication",
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {
@@ -18,7 +43,8 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/react": ">=16.8.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "tsup": "^8.0.1"
   },
   "dependencies": {
     "railframe": "^0.0.2"

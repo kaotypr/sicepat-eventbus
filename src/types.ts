@@ -19,3 +19,5 @@ export type EventMap = ApiEvents &
   SystemEvents &
   TableEvents &
   UserEvents;
+
+export type EventKey = keyof EventMap;
