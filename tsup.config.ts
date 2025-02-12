@@ -7,9 +7,13 @@ export default defineConfig({
   },
   format: ['cjs', 'esm'],
   dts: true,
-  splitting: false,
+  splitting: true,
   sourcemap: true,
   clean: true,
   treeshake: true,
   external: ['react', 'react-dom'],
+  esbuildOptions(options) {
+    options.chunkNames = 'chunks/[name]-[hash]';
+    options.metafile = true;
+  },
 });
