@@ -90,7 +90,7 @@ The EventbusClient provides full TypeScript support for event names and payload 
 
 ```typescript
 import { EventbusClient } from 'sicepat-eventbus'
-import type { EventMap, EventPayload } from 'sicepat-eventbus'
+import type { EventMap } from 'sicepat-eventbus'
 
 const eventbus = new EventbusClient()
 
@@ -98,8 +98,13 @@ const eventbus = new EventbusClient()
 eventbus.on('invalid:event', () => {}) // Error: invalid event name
 
 // Payload type checking
-eventbus.on('form:submit', (payload: EventPayload) => {
-  // payload.data and payload.metadata are properly typed
+eventbus.on('form:submit', (payload) => {
+  // payload is properly typed based on the event name
+  const {
+    data,
+    metadata,
+    unkownProperty // Error: Property 'unknownProperty' does not exist on type 'EventMap["form:submit"]'
+  } = payload
   console.log(payload.data)
 })
 

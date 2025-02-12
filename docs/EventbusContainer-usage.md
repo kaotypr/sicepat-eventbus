@@ -89,13 +89,13 @@ Clean up and remove all event listeners.
 eventbus.destroy()
 ```
 
-## ype Safety
+## Type Safety
 
 The EventbusContainer provides full TypeScript support:
 
 ```typescript
 import { EventbusContainer } from 'sicepat-eventbus'
-import type { EventMap, EventPayload } from 'sicepat-eventbus'
+import type { EventMap } from 'sicepat-eventbus'
 
 const iframe = document.getElementById('myIframe') as HTMLIFrameElement
 const eventbus = new EventbusContainer(iframe)
@@ -104,9 +104,13 @@ const eventbus = new EventbusContainer(iframe)
 eventbus.on('invalid:event', () => {}) // Error: invalid event name
 
 // Payload type checking
-eventbus.on('form:submit', (payload: EventPayload) => {
-  // payload.data and payload.metadata are properly typed
-  const { data, metadata } = payload
+eventbus.on('form:submit', (payload) => {
+  // payload is properly typed based on the event name
+  const {
+    data,
+    metadata,
+    unkownProperty // Error: Property 'unknownProperty' does not exist on type 'EventMap["form:submit"]'
+  } = payload
   console.log(data, metadata.timestamp)
 })
 ```
