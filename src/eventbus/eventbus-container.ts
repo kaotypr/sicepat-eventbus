@@ -1,7 +1,7 @@
 import { RailframeContainer, type RailframeOptions, type MessageHandler } from 'railframe';
 import type { EventMap } from '../types';
 
-export class EventBusContainer {
+export class EventbusContainer {
   private railframe: RailframeContainer;
   public readonly logger: typeof RailframeContainer.prototype.logger;
   constructor(iframe: HTMLIFrameElement, options?: RailframeOptions) {

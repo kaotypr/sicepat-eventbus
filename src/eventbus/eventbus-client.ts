@@ -1,7 +1,7 @@
 import { RailframeClient, type RailframeOptions, type MessageHandler } from 'railframe';
 import type { EventMap } from '../types';
 
-export class EventBusClient {
+export class EventbusClient {
   private railframe: RailframeClient;
   public readonly logger: typeof RailframeClient.prototype.logger;
   constructor(options?: RailframeOptions) {
