@@ -1,4 +1,4 @@
-import type { EventPayload } from '../event-payload-type'
+import type { EventPayload } from '../event-payload'
 
 export interface ModalEvents {
   'modal:open': EventPayload

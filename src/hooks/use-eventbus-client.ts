@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react'
 import type { RailframeOptions } from 'railframe'
 import { EventbusClient } from '../eventbus/eventbus-client'
-import type { EventMap } from '../types'
+import type { EventMap } from '../types/event-map'
 
 export function useEventbusClient(options?: RailframeOptions) {
   const optionsRef = useRef(options)

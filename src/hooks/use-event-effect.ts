@@ -1,6 +1,6 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import type { MessageHandler } from 'railframe'
-import type { EventMap } from '../types'
+import type { EventMap } from '../types/event-map'
 import type { EventbusClient } from '../eventbus/eventbus-client'
 import type { EventbusContainer } from '../eventbus/eventbus-container'
 

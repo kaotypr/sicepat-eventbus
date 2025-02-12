@@ -1,5 +1,6 @@
 import { RailframeContainer, type RailframeOptions, type MessageHandler } from 'railframe'
-import type { EventMap } from '../types'
+import type { EventMap } from '../types/event-map'
+import type { EmitEventPayload } from '../types/event-payload'
 
 /**
  * Eventbus container, directly handle events from the client and emit events to the client
@@ -33,7 +34,7 @@ export class EventbusContainer {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param payload - Payload to be sent, payload type is defined based on the event name
    */
-  emit<K extends keyof EventMap>(event: K, payload?: EventMap[K]): void {
+  emit<K extends keyof EventMap>(event: K, payload?: EmitEventPayload<EventMap[K]>): void {
     this.railframe.emit(event as string, payload)
   }
 
