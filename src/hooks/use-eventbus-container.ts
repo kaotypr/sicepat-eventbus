@@ -2,6 +2,7 @@ import { useRef, useCallback, useEffect } from 'react'
 import type { RailframeOptions } from 'railframe'
 import { EventbusContainer } from '../eventbus/eventbus-container'
 import type { EventMap } from '../types/event-map'
+import type { EmitEventPayload } from '../types/event-payload'
 
 export function useEventbusContainer(
   iframeRef: React.RefObject<HTMLIFrameElement | null>,
@@ -21,9 +22,12 @@ export function useEventbusContainer(
     }
   }, [iframeRef])
 
-  const emitEvent = useCallback(<K extends keyof EventMap>(event: K, payload?: EventMap[K]) => {
-    eventBusRef.current?.emit(event, payload)
-  }, [])
+  const emitEvent = useCallback(
+    <K extends keyof EventMap>(event: K, payload?: EmitEventPayload<EventMap[K]>) => {
+      eventBusRef.current?.emit(event, payload)
+    },
+    [],
+  )
 
   return {
     emitEvent,
