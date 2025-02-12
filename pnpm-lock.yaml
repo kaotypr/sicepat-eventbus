@@ -25,7 +25,7 @@ importers:
         specifier: '>=16.8.0'
         version: 19.0.8
       tsup:
-        specifier: ^8.3.6
+        specifier: ^8.0.1
         version: 8.3.6(typescript@5.7.3)
       typescript:
         specifier: ^5.7.3
@@ -564,8 +564,8 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  railframe@0.0.2:
-    resolution: {integrity: sha512-bggmk2U3jc/ac/x9BXAhM0y7Iy36/zNRuo3IKRH/BxDFkBHVzoFL9TdowcIYJZKsOUxTjj6gBJJynwoHy5B7JA==}
+  railframe@0.0.3:
+    resolution: {integrity: sha512-T33NxrHgHEiqvvcm7xIQnRlo4F4Lcwy6eQ1GKXPHm86UG3I82pXqXAflTsokeLIWh2XX7bqSAm81/fZ92UIJHQ==}
 
   react-dom@19.0.0:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
@@ -1067,7 +1067,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  railframe@0.0.2:
+  railframe@0.0.3:
     dependencies:
       '@kaotypr/liblog': 1.1.3
 
