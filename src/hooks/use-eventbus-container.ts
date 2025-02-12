@@ -4,7 +4,7 @@ import type { RailframeOptions, MessageHandler } from 'railframe';
 import { EventbusContainer } from '../eventbus/eventbus-container';
 import type { EventMap } from '../types';
 
-export function useEventbusContainer(iframeRef: React.RefObject<HTMLIFrameElement>, options?: RailframeOptions) {
+export function useEventbusContainer(iframeRef: React.RefObject<HTMLIFrameElement | null>, options?: RailframeOptions) {
   const eventBusRef = useRef<EventbusContainer | null>(null);
 
   useEffectCompat(() => {
