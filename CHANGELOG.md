@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/kaotypr/sicepat-eventbus/compare/v0.2.0...v0.2.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* **eventbus:** use arrow function for eventbus classes methods, properly bound methods ([7f5a973](https://github.com/kaotypr/sicepat-eventbus/commit/7f5a973c82883b0f116d08bc1198fc5ac03baf3b))
+
 ## [0.2.0](https://github.com/kaotypr/sicepat-eventbus/compare/v0.1.0...v0.2.0) (2025-02-13)
 
 
