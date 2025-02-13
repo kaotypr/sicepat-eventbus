@@ -1,12 +1,12 @@
-import { useRef, useCallback, useEffect } from 'react'
 import type { RailframeOptions } from 'railframe'
+import { useCallback, useEffect, useRef } from 'react'
 import { EventbusContainer } from '../eventbus/eventbus-container'
 import type { EventMap, EventType } from '../types/event-map'
 import type { EmitEventPayload } from '../types/event-payload'
 
 export function useEventbusContainer(
   iframeRef: React.RefObject<HTMLIFrameElement | null>,
-  options?: RailframeOptions,
+  options?: Omit<RailframeOptions, 'delimitter'>,
 ) {
   const optionsRef = useRef(options)
   const eventBusRef = useRef<EventbusContainer | null>(null)
