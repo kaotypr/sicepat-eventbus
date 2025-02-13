@@ -14,7 +14,7 @@ export class EventbusGlobal {
    * @param options.targetOrigin - target origin
    * @param options.debug - debug mode
    */
-  constructor(options?: Omit<RailframeOptions, 'delimitter'>) {
+  constructor(options?: Omit<RailframeOptions, 'delimiter'>) {
     this.railframe = new RailframeGlobal({ ...options, delimiter: ':' })
     this.logger = this.railframe.logger
   }

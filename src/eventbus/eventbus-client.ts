@@ -14,7 +14,7 @@ export class EventbusClient {
    * @param options.targetOrigin - target origin
    * @param options.debug - debug mode
    */
-  constructor(options?: Omit<RailframeOptions, 'delimitter'>) {
+  constructor(options?: Omit<RailframeOptions, 'delimiter'>) {
     this.railframe = new RailframeClient({ ...options, delimiter: ':' })
     this.logger = this.railframe.logger
   }

@@ -15,7 +15,7 @@ export class EventbusContainer {
    * @param options.targetOrigin - target origin
    * @param options.debug - debug mode
    */
-  constructor(iframe: HTMLIFrameElement, options?: Omit<RailframeOptions, 'delimitter'>) {
+  constructor(iframe: HTMLIFrameElement, options?: Omit<RailframeOptions, 'delimiter'>) {
     this.railframe = new RailframeContainer(iframe, { ...options, delimiter: ':' })
     this.logger = this.railframe.logger
   }
