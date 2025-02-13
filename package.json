@@ -1,6 +1,6 @@
 {
   "name": "sicepat-eventbus",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Type-safe event bus for iframe communication",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
