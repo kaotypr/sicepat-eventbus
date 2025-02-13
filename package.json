@@ -24,7 +24,8 @@
     "format": "biome format --write .",
     "lint": "biome lint .",
     "check": "biome check --apply .",
-    "prepublishOnly": "pnpm run build"
+    "prepare": "npm run build && lefthook install",
+    "prepublishOnly": "npm run build"
   },
   "keywords": ["eventbus", "iframe", "communication", "react"],
   "author": "",
@@ -36,8 +37,9 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/react": ">=16.8.0",
-    "typescript": "^5.7.3",
-    "tsup": "^8.0.1"
+    "lefthook": "^1.10.10",
+    "tsup": "^8.0.1",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "railframe": "^0.0.3"
