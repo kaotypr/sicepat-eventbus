@@ -61,10 +61,10 @@ function Client() {
 
 ## Documentation
 
-- [Hooks Usage](./docs/hooks-usage.md)
-- [EventbusClient Usage](./docs/EventbusClient-usage.md)
-- [EventbusContainer Usage](./docs/EventbusContainer-usage.md)
-- [Available Events](./docs/available-events.md)
+- [Hooks Usage](https://github.com/kaotypr/sicepat-eventbus/blob/main/docs/hooks-usage.md)
+- [EventbusClient Usage](https://github.com/kaotypr/sicepat-eventbus/blob/main/docs/EventbusClient-usage.md)
+- [EventbusContainer Usage](https://github.com/kaotypr/sicepat-eventbus/blob/main/docs/EventbusContainer-usage.md)
+- [Available Events](https://github.com/kaotypr/sicepat-eventbus/blob/main/docs/available-events.md)
 
 ## API Reference
 
