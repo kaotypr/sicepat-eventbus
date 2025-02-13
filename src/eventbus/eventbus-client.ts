@@ -1,4 +1,4 @@
-import { RailframeClient, type RailframeOptions, type MessageHandler } from 'railframe'
+import { type MessageHandler, RailframeClient, type RailframeOptions } from 'railframe'
 import type { EventMap } from '../types/event-map'
 import type { EmitEventPayload } from '../types/event-payload'
 
@@ -34,7 +34,7 @@ export class EventbusClient {
    * @param payload - Payload to be sent, payload type is defined based on the event name
    */
   emit<K extends keyof EventMap>(event: K, payload?: EmitEventPayload<EventMap[K]>): void {
-    const payloadWithEventType: EventMap['api:request:error'] = { ...payload, eventType: event }
+    const payloadWithEventType: EventMap[K] = { ...payload, eventType: event }
     this.railframe.emit(event as string, payloadWithEventType)
   }
 
