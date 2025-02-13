@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/kaotypr/sicepat-eventbus/compare/v0.1.0...v0.2.0) (2025-02-13)
+
+
+### Features
+
+* **eventbus:** eventbus-global ([dfb5863](https://github.com/kaotypr/sicepat-eventbus/commit/dfb5863440e5a6a4656bdc47a7680c9a5e39a32a))
+* **eventbus:** inject eventType inside payload for every emit ([ebfa8a3](https://github.com/kaotypr/sicepat-eventbus/commit/ebfa8a3049eadf288ed7a45ad77e8103840fc43a))
+
+
+### Bug Fixes
+
+* **eventbus:** typo on omit delimiter from options type ([0568135](https://github.com/kaotypr/sicepat-eventbus/commit/05681355a548cec39d6f0ec896af59908c4604cd))
+* hooks options delimiter shouldn't be configurable ([c245431](https://github.com/kaotypr/sicepat-eventbus/commit/c2454315185f0f1405c162c09e71d7920b5bfd55))
+* **types:** all event payload should not be a nullish type ([34688d4](https://github.com/kaotypr/sicepat-eventbus/commit/34688d40ecd337a149a26804b26ba33136cd723c))
+
 ## 0.1.0 (2025-02-13)
 
 
