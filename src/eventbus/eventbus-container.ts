@@ -25,7 +25,10 @@ export class EventbusContainer {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param callback - Callback function to be called when the event is emitted by the client
    */
-  on<K extends keyof EventMap>(event: K, callback: MessageHandler<EventMap[K]>): void {
+  public readonly on = <K extends keyof EventMap>(
+    event: K,
+    callback: MessageHandler<EventMap[K]>,
+  ): void => {
     this.railframe.on(event as string, callback)
   }
 
@@ -34,7 +37,10 @@ export class EventbusContainer {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param payload - Payload to be sent, payload type is defined based on the event name
    */
-  emit<K extends keyof EventMap>(event: K, payload?: EmitEventPayload<EventMap[K]>): void {
+  public readonly emit = <K extends keyof EventMap>(
+    event: K,
+    payload?: EmitEventPayload<EventMap[K]>,
+  ): void => {
     const payloadWithEventType: EventMap[K] = { ...payload, eventType: event }
     this.railframe.emit(event as string, payloadWithEventType)
   }
@@ -44,14 +50,17 @@ export class EventbusContainer {
    * @param event - Event name, use ":" as delimiter for namespaces
    * @param callback - Specific callback function to be removed from the event listeners, if not provided, all callback functions on given event name will be removed
    */
-  off<K extends keyof EventMap>(event: K, callback?: MessageHandler<EventMap[K]>): void {
+  public readonly off = <K extends keyof EventMap>(
+    event: K,
+    callback?: MessageHandler<EventMap[K]>,
+  ): void => {
     this.railframe.off(event as string, callback)
   }
 
   /**
    * Destroy the event bus client and remove all listeners from the container
    */
-  destroy() {
+  public readonly destroy = () => {
     this.railframe.destroy()
   }
 }
