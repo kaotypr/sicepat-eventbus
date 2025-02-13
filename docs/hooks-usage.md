@@ -22,7 +22,7 @@ import { useEventbusContainer, useEventEffect } from 'sicepat-eventbus/hooks'
 
 function ContainerExample() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const { eventBusRef, emitEvent } = useEventbusContainer(iframeRef)
+  const { eventBusRef, emit } = useEventbusContainer(iframeRef)
 
   // Listen to events from client
   useEventEffect((payload) => {
@@ -31,7 +31,7 @@ function ContainerExample() {
 
   // Emit events to client
   const handleClick = () => {
-    emitEvent('modal:open', { subject: 'login-modal-id' })
+    emit('modal:open', { subject: 'login-modal-id' })
   }
 
   return <iframe ref={iframeRef} src="client-url.html" />
@@ -44,7 +44,7 @@ function ContainerExample() {
 import { useEventbusClient, useEventEffect } from 'sicepat-eventbus/hooks'
 
 function ClientExample() {
-  const { eventBusRef, emitEvent } = useEventbusClient()
+  const { eventBusRef, emit } = useEventbusClient()
 
   // Listen to events from container
   useEventEffect((payload) => {
@@ -55,7 +55,7 @@ function ClientExample() {
 
   // Emit events to container
   const notifyContainer = () => {
-    emitEvent('user:login', { 
+    emit('user:login', { 
       data: {
         username: 'kaotypr',
         password: 'DropTableUsers;--'
@@ -76,7 +76,7 @@ import { useEventbusClient, useEventEffect } from 'sicepat-eventbus/hooks'
 import type { EventMap } from 'sicepat-eventbus'
 
 function MultipleEventsExample() {
-  const { eventBusRef, emitEvent } = useEventbusClient()
+  const { eventBusRef, emit } = useEventbusClient()
 
   useEventEffect<keyof Pick<EventMap, 'form:submit' | 'form:validate' | 'form:error'>>((payload) => {
     switch (payload.eventType) {
@@ -98,6 +98,31 @@ function MultipleEventsExample() {
 }
 ```
 
+### Custom Events and Custom Emit (Non Type-Safe)
+
+```tsx
+import { useEventbusClient, useCustomEventEffect } from 'sicepat-eventbus/hooks'
+
+function CustomEventsExample() {
+  const { eventBusRef, customEmit } = useEventbusClient()
+
+  // Listen to custom events
+  useCustomEventEffect((payload) => {
+    console.log('Custom event received:', payload)
+  }, [eventBusRef, 'custom:event', 'another:custom:event'])
+
+  // Emit custom events
+  const handleCustomEvent = () => {
+    customEmit('custom:event', { 
+      data: { custom: 'data' },
+      metadata: { timestamp: Date.now() }
+    })
+  }
+
+  return <button onClick={handleCustomEvent}>Trigger Custom Event</button>
+}
+```
+
 ## Automatic Cleanup
 
 The hooks automatically handle cleanup when the component unmounts:
@@ -115,3 +140,9 @@ function CleanupExample() {
 }
 ```
 
+## Best Practices
+1. Use useEventEffect with standard events for type safety
+2. Use useCustomEventEffect only when dealing with custom events
+3. Prefer emit over customEmit when possible for type safety
+4. Always clean up event listeners (handled automatically by hooks)
+5. Keep event payloads consistent within your application
