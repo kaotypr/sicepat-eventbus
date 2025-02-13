@@ -25,7 +25,6 @@
     "lint": "biome lint .",
     "check": "biome check --apply .",
     "prepare": "npm run build && lefthook install",
-    "prepublishOnly": "npm run build",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
@@ -49,6 +48,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "railframe": "^0.0.3"
+    "railframe": "^1.1.0"
   }
 }

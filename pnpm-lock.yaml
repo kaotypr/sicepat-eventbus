@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       railframe:
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: '>=16.8.0'
         version: 19.0.0
@@ -1325,8 +1325,8 @@ packages:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
 
-  railframe@0.0.3:
-    resolution: {integrity: sha512-T33NxrHgHEiqvvcm7xIQnRlo4F4Lcwy6eQ1GKXPHm86UG3I82pXqXAflTsokeLIWh2XX7bqSAm81/fZ92UIJHQ==}
+  railframe@1.1.0:
+    resolution: {integrity: sha512-gIObzHmXaZ9u5bf91q+Kg9YuMOskcbY6XqkFDT6K4x0MewH6RMosdoujHeBmjmvikYVH2cN/KnVbmfa+pdPkPQ==}
 
   react-dom@19.0.0:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
@@ -2819,7 +2819,7 @@ snapshots:
 
   quick-lru@4.0.1: {}
 
-  railframe@0.0.3:
+  railframe@1.1.0:
     dependencies:
       '@kaotypr/liblog': 1.1.3
 
