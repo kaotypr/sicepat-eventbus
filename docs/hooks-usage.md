@@ -129,7 +129,7 @@ The hooks automatically handle cleanup when the component unmounts:
 
 ```tsx
 function CleanupExample() {
-  const { eventBusRef, emitEvent } = useEventbusClient()
+  const { eventBusRef, emit } = useEventbusClient()
 
   useEventEffect((payload) => {
     // This listener will be automatically removed when component unmounts
